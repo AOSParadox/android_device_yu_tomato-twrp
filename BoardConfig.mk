@@ -30,6 +30,9 @@ TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := cortex-a7
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
+# Assertions
+TARGET_BOARD_INFO_FILE ?= device/yu/tomato/board-info.txt
+
 # Kernel
 TARGET_PREBUILT_KERNEL := device/yu/tomato/kernel
 TARGET_CUSTOM_KERNEL_HEADERS := device/yu/tomato/include
