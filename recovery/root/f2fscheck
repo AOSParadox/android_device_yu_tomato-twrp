@@ -1,0 +1,23 @@
+#!/sbin/sh
+
+# userdata
+DATA_BDEV=`/sbin/busybox readlink /dev/block/bootdevice/by-name/userdata`
+DATA_FSTYPE=`/sbin/busybox blkid $DATA_BDEV | /sbin/busybox cut -d ' ' -f3 | /sbin/busybox cut -d '"' -f2`
+
+# cache
+CACHE_BDEV=`/sbin/busybox readlink /dev/block/bootdevice/by-name/cache`
+CACHE_FSTYPE=`/sbin/busybox blkid $CACHE_BDEV | /sbin/busybox cut -d ' ' -f3 | /sbin/busybox cut -d '"' -f2`
+
+# Change /data to ext4
+if [ "$DATA_FSTYPE" == "f2fs" ]
+then
+  sed -i '/data/s/ext4/f2fs/g' /etc/recovery.fstab;
+  sed -i '/data/s/ext4/f2fs/g' /etc/twrp.fstab;
+fi
+
+# Change /cache to f2fs
+if [ "$CACHE_FSTYPE" == "f2fs" ]
+then
+  sed -i '/cache/s/ext4/f2fs/g' /etc/recovery.fstab;
+  sed -i '/cache/s/ext4/f2fs/g' /etc/twrp.fstab;
+fi
