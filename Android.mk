@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-ifneq ($(filter tomato,$(TARGET_DEVICE)),)
+ifeq ($(TARGET_DEVICE),tomato)
 LOCAL_PATH := $(call my-dir)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
