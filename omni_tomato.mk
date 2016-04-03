@@ -29,5 +29,5 @@ $(call inherit-product, vendor/omni/config/common.mk)
 PRODUCT_DEVICE := tomato
 PRODUCT_NAME := omni_tomato
 PRODUCT_BRAND := YU
-PRODUCT_MODEL := YU5510
+PRODUCT_MODEL := YUREKA
 PRODUCT_MANUFACTURER := YU
