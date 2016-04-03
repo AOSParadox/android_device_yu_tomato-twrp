@@ -26,8 +26,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
+# Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := tomato
 PRODUCT_NAME := omni_tomato
 PRODUCT_BRAND := YU
-PRODUCT_MODEL := YUREKA
+PRODUCT_MODEL := AO5510
 PRODUCT_MANUFACTURER := YU
+
+# enable stock zip packages flash
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.build.product=YUREKA \
+    ro.product.device=YUREKA
